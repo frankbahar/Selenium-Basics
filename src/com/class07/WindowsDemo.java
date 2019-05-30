@@ -22,19 +22,24 @@ public class WindowsDemo extends CommonMethods {
 	public static void main(String[] args) throws InterruptedException {
 		setUpDriver("chrome", "http://uitestpractice.com/Students/Switchto");
 		String parentTitle = driver.getTitle();
-		String parentId= driver.getWindowHandle();
+		String parentId = driver.getWindowHandle();
 		System.out.println("Parent Title: " + parentTitle + " Parent Id : " + parentId);
 		driver.findElement(By.xpath("//a[text()='Opens in a new window']")).click();
 		Set<String> windows = driver.getWindowHandles();
 		Iterator<String> it = windows.iterator();
-		String parent = it.next();
-		String child = it.next();
-		driver.switchTo().window(child);
-		Thread.sleep(2000 );
-		String childTitle = driver.getTitle();
-		String childId = driver.getWindowHandle();
-		System.out.println("Child Title : " + childTitle + " Child Id : " + childId);
-		driver.close();
+		while (it.hasNext()) {
+			String child = it.next();
+			if (!child.equals(parentId)) {
+				driver.switchTo().window(child);
+				Thread.sleep(2000);
+				String childTitle = driver.getTitle();
+				String childId = driver.getWindowHandle();
+				System.out.println("Child Title : " + childTitle + " Child Id : " + childId);
+				driver.close();
+				driver.switchTo().window(parentId);
+			}
+		}
+	
 		Thread.sleep(3000);
 		driver.quit();
 

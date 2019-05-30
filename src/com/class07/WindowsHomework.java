@@ -1,3 +1,4 @@
+
 package com.class07;
 
 import java.util.Iterator;
@@ -7,7 +8,7 @@ import org.openqa.selenium.By;
 
 import utils.CommonMethods;
 
-public class WindowsHomework extends CommonMethods{
+public class WindowsHomework extends CommonMethods {
 	/*
 	 * ToolsQA Windows verification Open chrome browser Go to
 	 * “https://the-internet.herokuapp.com/” Click on “Multiple Windows” link Click
@@ -19,44 +20,50 @@ public class WindowsHomework extends CommonMethods{
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		setUpDriver("chrome", "https://the-internet.herokuapp.com");
+		String parent = driver.getWindowHandle();
 		driver.findElement(By.linkText("Multiple Windows")).click();
 		driver.findElement(By.linkText("Elemental Selenium")).click();
 		Set<String> windows = driver.getWindowHandles();
-		Iterator<String> it = windows.iterator();
-		String parent = it.next();
-		String child = it.next();
-		String expected = "Elemental Selenium: Receive a Free, Weekly Tip on Using Selenium like a Pro";
-		driver.switchTo().window(child);
-		String title = driver.getTitle();
-		if(title.equalsIgnoreCase(expected)) {
-			System.out.println("Title is " + title + " and verified");
-		}else {
-			System.out.println("Title is " + title + " Expected " + expected + " could not verified");
+		for (String child : windows) {
+			if (!child.equals(parent)) {
+				String expected = "Elemental Selenium: Receive a Free, Weekly Tip on Using Selenium like a Pro";
+				driver.switchTo().window(child);
+				String title = driver.getTitle();
+				if (title.equalsIgnoreCase(expected)) {
+					System.out.println("Title is " + title + " and verified");
+				} else {
+					System.out.println("Title is " + title + " Expected " + expected + " could not verified");
+				}
+				Thread.sleep(2000);
+				driver.close();
+				driver.switchTo().window(parent);
+			}
 		}
-		Thread.sleep(2000);
-		driver.close();
-		driver.switchTo().window(parent);
 		driver.findElement(By.linkText("Click Here")).click();
+		Thread.sleep(3000);
 		windows = driver.getWindowHandles();
-		it = windows.iterator();
-		parent = it.next();
-		child = it.next();
-		expected = "New Window";
-		driver.switchTo().window(child);
-		title = driver.getTitle();
-		if(title.equalsIgnoreCase(expected)) {
-			System.out.println("Title is " + title + " and verified");
-		}else {
-			System.out.println("Title is " + title + " Expected " + expected + " could not verified");
+		Iterator<String> it = windows.iterator();
+		while (it.hasNext()) {
+			String child = it.next();
+			String expected = "New Window";
+			if (!child.equals(parent)) {
+				driver.switchTo().window(child);
+				String title = driver.getTitle();
+				if (title.equalsIgnoreCase(expected)) {
+					System.out.println("Title is " + title + " and verified");
+				} else {
+					System.out.println("Title is " + title + " Expected " + expected + " could not verified");
+				}
+				Thread.sleep(2000);
+				driver.close();
+				driver.switchTo().window(parent);
+			}
 		}
-		Thread.sleep(2000);
-		driver.close();
-		driver.switchTo().window(parent);
-		title = driver.getTitle();
-		expected = "The Internet";
-		if(title.equalsIgnoreCase(expected)) {
+		String title = driver.getTitle();
+		String expected = "The Internet";
+		if (title.equalsIgnoreCase(expected)) {
 			System.out.println("Title is " + title + " and verified");
-		}else {
+		} else {
 			System.out.println("Title is " + title + " Expected " + expected + " could not verified");
 		}
 		Thread.sleep(2000);

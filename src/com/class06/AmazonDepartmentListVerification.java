@@ -46,7 +46,8 @@ public class AmazonDepartmentListVerification {
 		}
 
 		select.selectByVisibleText("Computers");
-
+		
+		System.out.println("Total frames " + driver.findElements(By.tagName("iframe")).size());
 		Thread.sleep(3000);
 		driver.quit();
 
