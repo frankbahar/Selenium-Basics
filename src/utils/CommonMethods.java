@@ -198,6 +198,8 @@ public class CommonMethods {
 					isElementSelected = true;
 					break;
 				}
+			}else {
+				System.out.println("Options is NOT enabled");
 			}
 		}
 		if (!isElementSelected) {
@@ -217,9 +219,16 @@ public class CommonMethods {
 				if (option.isEnabled()) {
 					String value = option.getAttribute("value");
 					if (value.equals(text)) {
-						option.click();
-						isElementSelected = true;
+						if (!option.isSelected()) {
+							option.click();
+							isElementSelected = true;
+							break;
+						}else {
+							System.out.println("Option already selected");
+						}
 					}
+				}else {
+					System.out.println("Option is NOT enabled");
 				}
 			}
 		}
@@ -229,7 +238,7 @@ public class CommonMethods {
 	}
 
 	/**
-	 * Method that will wait for element to be visible
+	 * @author Frank Bahar Method that will wait for element to be visible
 	 * 
 	 * @param WebElement element, int time
 	 */
@@ -237,22 +246,42 @@ public class CommonMethods {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
-
+	
+	/**
+	 * @author Frank Bahar Method that will wait for element to be visible
+	 * 
+	 * @param By locator, int time
+	 */
 	public static void waitForElementBeVisible(By locator, int time) {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
+	/**
+	 * @author Frank Bahar Method that will wait for element to be clickable
+	 * 
+	 * @param WebElement element, int time
+	 * */
 	public static void waitForElementBeClickable(WebElement element, int time) {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
+	/**
+	 * @author Frank Bahar Method that will wait for element to be clickable
+	 * 
+	 * @param By locator, int time
+	 */
 	public static void waitForElementBeClickable(By locator, int time) {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
+	/**
+	 * @author Frank Bahar This method will take a screenshot
+	 * 
+	 * @param String filePath
+	 */
 	public static void takeScreenshot(String filePath) {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File upload = ts.getScreenshotAs(OutputType.FILE);
@@ -263,22 +292,58 @@ public class CommonMethods {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * @author Frank Bahar This method will scroll down to given pixel
+	 * 
+	 * @param int pixels
+	 */
 	public static void scrollDown(int pixels) {
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0," + pixels + ")");	
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0," + pixels + ")");
 	}
 	
-
+	/**
+	 * @author Frank Bahar This method will scroll up to given pixel
+	 * 
+	 * @param int pixels
+	 */
 	public static void scrollUp(int pixels) {
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0,-" + pixels + ")");	
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,-" + pixels + ")");
 	}
 
+	/**
+	 * @author Frank Bahar This method will scroll up to given element visibility
+	 * 
+	 * @param WebElement element
+	 */
+	public static void scrollIntoView(WebElement element) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+	
+	
+	/**
+	 * @author Frank Bahar This method will click element by Javascript
+	 * 
+	 * WebElement element
+	 */
 	public static void jsClick(WebElement element) {
-		JavascriptExecutor js=(JavascriptExecutor)driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
-			
+
+	}
+	
+	/**
+	 * @author Frank Bahar return title of the page by Javascript
+	 * 
+	 * @return String title
+	 */
+	public static String getTitleByJS() {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		String title = js.executeScript("return document.title;").toString();
+		return title;
 	}
 	
 	public static void quitDriver() {
