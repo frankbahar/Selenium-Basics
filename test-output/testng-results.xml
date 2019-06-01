@@ -2,16 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25" started-at="2019-05-28T21:44:17Z" finished-at="2019-05-28T21:44:17Z">
+  <suite name="Default suite" duration-ms="28944" started-at="2019-06-01T07:19:56Z" finished-at="2019-06-01T07:20:25Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25" started-at="2019-05-28T21:44:17Z" finished-at="2019-05-28T21:44:17Z">
-      <class name="com.class11.TestNG">
-        <test-method status="PASS" signature="sayHello()[pri:0, instance:com.class11.TestNG@6cc4c815]" name="sayHello" duration-ms="7" started-at="2019-05-28T21:44:17Z" finished-at="2019-05-28T21:44:17Z">
+    <test name="Default test" duration-ms="28944" started-at="2019-06-01T07:19:56Z" finished-at="2019-06-01T07:20:25Z">
+      <class name="com.class12.JavaScriptExecuterConcept">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.class12.JavaScriptExecuterConcept@482f8f11]" name="setup" is-config="true" duration-ms="4493" started-at="2019-06-01T07:19:56Z" finished-at="2019-06-01T07:20:00Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- sayHello -->
-      </class> <!-- com.class11.TestNG -->
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="javaScriptTest()[pri:0, instance:com.class12.JavaScriptExecuterConcept@482f8f11]" name="javaScriptTest" duration-ms="20722" started-at="2019-06-01T07:20:00Z" finished-at="2019-06-01T07:20:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- javaScriptTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.class12.JavaScriptExecuterConcept@482f8f11]" name="tearDown" is-config="true" duration-ms="3706" started-at="2019-06-01T07:20:21Z" finished-at="2019-06-01T07:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.class12.JavaScriptExecuterConcept -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
