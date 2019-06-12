@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28944" started-at="2019-06-01T07:19:56Z" finished-at="2019-06-01T07:20:25Z">
+  <suite name="Default suite" duration-ms="49523" started-at="2019-06-07T02:49:41Z" finished-at="2019-06-07T02:50:31Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28944" started-at="2019-06-01T07:19:56Z" finished-at="2019-06-01T07:20:25Z">
-      <class name="com.class12.JavaScriptExecuterConcept">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.class12.JavaScriptExecuterConcept@482f8f11]" name="setup" is-config="true" duration-ms="4493" started-at="2019-06-01T07:19:56Z" finished-at="2019-06-01T07:20:00Z">
+    <test name="Default test" duration-ms="49523" started-at="2019-06-07T02:49:41Z" finished-at="2019-06-07T02:50:31Z">
+      <class name="com.class12.BrokenImagesExample">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.class12.BrokenImagesExample@1b604f19]" name="setUp" is-config="true" duration-ms="4805" started-at="2019-06-07T02:49:41Z" finished-at="2019-06-07T02:49:46Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="javaScriptTest()[pri:0, instance:com.class12.JavaScriptExecuterConcept@482f8f11]" name="javaScriptTest" duration-ms="20722" started-at="2019-06-01T07:20:00Z" finished-at="2019-06-01T07:20:21Z">
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="checkLogo()[pri:0, instance:com.class12.BrokenImagesExample@1b604f19]" name="checkLogo" duration-ms="3037" started-at="2019-06-07T02:49:46Z" finished-at="2019-06-07T02:49:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- javaScriptTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.class12.JavaScriptExecuterConcept@482f8f11]" name="tearDown" is-config="true" duration-ms="3706" started-at="2019-06-01T07:20:21Z" finished-at="2019-06-01T07:20:25Z">
+        </test-method> <!-- checkLogo -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.class12.BrokenImagesExample@1b604f19]" name="tearDown" is-config="true" duration-ms="656" started-at="2019-06-07T02:49:49Z" finished-at="2019-06-07T02:49:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.class12.JavaScriptExecuterConcept -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.class12.BrokenImagesExample@1b604f19]" name="setUp" is-config="true" duration-ms="4825" started-at="2019-06-07T02:49:50Z" finished-at="2019-06-07T02:49:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="logo()[pri:1, instance:com.class12.BrokenImagesExample@1b604f19]" name="logo" duration-ms="23091" started-at="2019-06-07T02:49:55Z" finished-at="2019-06-07T02:50:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logo -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.class12.BrokenImagesExample@1b604f19]" name="tearDown" is-config="true" duration-ms="672" started-at="2019-06-07T02:50:18Z" finished-at="2019-06-07T02:50:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.class12.BrokenImagesExample@1b604f19]" name="setUp" is-config="true" duration-ms="4934" started-at="2019-06-07T02:50:18Z" finished-at="2019-06-07T02:50:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="logIn()[pri:2, instance:com.class12.BrokenImagesExample@1b604f19]" name="logIn" duration-ms="6813" started-at="2019-06-07T02:50:23Z" finished-at="2019-06-07T02:50:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logIn -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.class12.BrokenImagesExample@1b604f19]" name="tearDown" is-config="true" duration-ms="675" started-at="2019-06-07T02:50:30Z" finished-at="2019-06-07T02:50:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.class12.BrokenImagesExample -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
